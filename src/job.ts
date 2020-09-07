@@ -38,6 +38,15 @@ export class Job {
     this.start();
   }
 
+  public addError(err: any): this {
+    this._errors.push(err);
+    return this;
+  }
+
+  public getErrors(): any[] {
+    return this._errors;
+  }
+
   public finish(): this {
     this._spinner.stop();
     this._finish = (new Date).getTime();
@@ -45,7 +54,7 @@ export class Job {
   }
 
   public getElapsedMilliseconds(): number {
-    return this._finish - this._start;
+    return this._finish ? this._finish - this._start : 0;
   }
 
   public getElapsedSeconds(): number {
@@ -93,7 +102,7 @@ export class Job {
   }
 
   protected getStatusText(): string {
-    return this.hasErrors() ? 'Errors' : 'Ok';
+    return this.hasErrors() ? 'Error' : 'Ok';
   }
 
   public hasErrors(): boolean {
@@ -101,7 +110,7 @@ export class Job {
   }
 
   public getReportText(): string {
-    let result = '';
+    let result = '\n';
 
     result += indent(style(this._title, FontColor.Default, FontStyle.Bold), 2);
     result += '\n\n';
@@ -114,7 +123,7 @@ export class Job {
 
     if (this._summary.length > 0) {
       result += '\n';
-      result += indent(style(this._summary, FontColor.Default, FontStyle.Dim), 4);
+      result += indent(this._summary, 4);
     }
 
     result += '\n';
@@ -123,5 +132,18 @@ export class Job {
 
   public toString(): string {
     return '[object Job]';
+  }
+
+  public writeTo(stream: stream.Writable): this {
+    stream.write(this.getReportText());
+    return this;
+  }
+
+  public exitCode(): number {
+    return this.hasErrors() ? 1 : 0;
+  }
+
+  public exit(): void {
+    process.exit(this.exitCode());
   }
 }
