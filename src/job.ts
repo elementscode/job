@@ -112,18 +112,15 @@ export class Job {
   public getReportText(): string {
     let result = '\n';
 
-    result += indent(style(this._title, FontColor.Default, FontStyle.Bold), 2);
-    result += '\n\n';
-
     result += table([
       [style('Elapsed:', FontColor.Gray), style(this.getElapsedText(), FontColor.Default, FontStyle.Dim)],
       [style('Time:', FontColor.Gray), style(this.getElapsedText(), FontColor.Default, FontStyle.Dim)],
       [style('Status:', FontColor.Gray), style(this.getStatusText(), this.hasErrors() ? FontColor.Red : FontColor.Green, FontStyle.Bold)],
-    ], 4);
+    ], 2);
 
     if (this._summary.length > 0) {
       result += '\n';
-      result += indent(this._summary, 4);
+      result += indent(this._summary, 2);
     }
 
     result += '\n';
