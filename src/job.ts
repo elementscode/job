@@ -98,7 +98,7 @@ export class Job {
   }
 
   protected getProgressText(value: string): string {
-    return style('  %s ', FontColor.Green) + ' ' + value;
+    return style('  %s ', FontColor.Blue) + ' ' + value;
   }
 
   protected getStatusText(): string {
