@@ -112,7 +112,7 @@ export class Job {
 
     result += table([
       [style('Elapsed:', FontColor.Gray), style(this.getElapsedText(), FontColor.Default, FontStyle.Dim)],
-      [style('Time:', FontColor.Gray), style(this.getElapsedText(), FontColor.Default, FontStyle.Dim)],
+      [style('Time:', FontColor.Gray), style(this.getFinishTimeText(), FontColor.Default, FontStyle.Dim)],
       [style('Status:', FontColor.Gray), style(this.getStatusText(), this.hasErrors() ? FontColor.Red : FontColor.Green, FontStyle.Bold)],
     ], 2);
 
