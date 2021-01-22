@@ -14,13 +14,12 @@ import {
 export interface IJobOpts {
   stream?: stream.Writable;
   spinner?: boolean;
-  progress?: string;
+  progressText?: string;
   title?: string;
 }
 
 export class Job {
   _opts: IJobOpts;
-  _title: string;
   _summary: string;
   _start: number;
   _finish: number;
@@ -30,9 +29,8 @@ export class Job {
 
   constructor(opts: IJobOpts = {}) {
     this._opts = opts;
-    this._title = opts.title || 'Job Report:';
     this._stream = opts.stream || process.stderr;
-    this._spinner = new Spinner(this._stream, this.getProgressText(opts.progress || 'Processing'));
+    this._spinner = new Spinner(this._stream, this.getProgressText(opts.progressText || 'Processing'));
     this._errors = [];
     this._summary = '';
     this.start();
