@@ -75,7 +75,7 @@ export class Job {
     let secs = finish.getSeconds();
     let ampm = finish.getHours() > 12 ? 'pm' : 'am';
 
-    return padZeros(hrs, 2) + ':' + padZeros(mins, 2) + ':' + padZeros(secs, 2) + ampm;
+    return hrs + ':' + padZeros(mins, 2) + ':' + padZeros(secs, 2) + ampm;
   }
 
   public progress(text: string): this {
