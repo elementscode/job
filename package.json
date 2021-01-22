@@ -2,7 +2,7 @@
   "name": "@elements/job",
   "description": "A central job tracking class.",
   "version": "0.0.0",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "browser": {
     "./find": false
   },
