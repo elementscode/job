@@ -96,7 +96,7 @@ export class Job {
   }
 
   protected getProgressText(value: string): string {
-    return style('  %s ', FontColor.Blue) + ' ' + value;
+    return style.progress('  %s ') + ' ' + value;
   }
 
   protected getStatusText(): string {
@@ -111,9 +111,9 @@ export class Job {
     let result = '\n';
 
     result += table([
-      [style('Elapsed:', FontColor.Gray), style(this.getElapsedText(), FontColor.Default, FontStyle.Dim)],
-      [style('Time:', FontColor.Gray), style(this.getFinishTimeText(), FontColor.Default, FontStyle.Dim)],
-      [style('Status:', FontColor.Gray), style(this.getStatusText(), this.hasErrors() ? FontColor.Red : FontColor.Green, FontStyle.Bold)],
+      [style.label('Elapsed:'), style.subtle(this.getElapsedText())],
+      [style.label('Time:'), style.subtle(this.getFinishTimeText())],
+      [style.label('Status:'), this.hasErrors() ? style.berror(this.getStatusText()) : style.bsuccess(this.getStatusText())],
     ], 2);
 
     if (this._summary.length > 0) {

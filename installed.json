@@ -1,24 +1,23 @@
 {
   "version": "1.0.0",
-  "time": "2020-09-03T16:40:34-07:00",
   "project": {
     "@elements/term": {
-      "spec": "0.0.0",
+      "spec": ">=0.0.0 <0.1.0",
       "version": "0.0.0",
       "kind": "dependencies"
     },
     "@elements/utils": {
-      "spec": "0.0.0",
+      "spec": ">=0.0.0 <0.1.0",
       "version": "0.0.0",
       "kind": "dependencies"
     },
     "@types/node": {
-      "spec": "latest",
-      "version": "14.6.3",
+      "spec": ">=14.14.22 <14.15.0",
+      "version": "14.14.22",
       "kind": "devDependencies"
     },
     "typescript": {
-      "spec": "3.9.7",
+      "spec": ">=3.9.7 <3.10.0",
       "version": "3.9.7",
       "kind": "devDependencies"
     }
@@ -29,7 +28,7 @@
         "@elements/utils": {
           "spec": "0.0.0",
           "version": "0.0.0",
-          "kind": "0.0.0"
+          "kind": "dependencies"
         }
       }
     },
@@ -37,7 +36,7 @@
       "0.0.0": {}
     },
     "@types/node": {
-      "14.6.3": {}
+      "14.14.22": {}
     },
     "typescript": {
       "3.9.7": {}
