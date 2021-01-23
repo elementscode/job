@@ -26,6 +26,7 @@ export class Job {
   _stream: stream.Writable;
   _spinner: Spinner;
   _errors: any[];
+  _data: Map<string, any>;
 
   constructor(opts: IJobOpts = {}) {
     this._opts = opts;
@@ -33,7 +34,17 @@ export class Job {
     this._spinner = new Spinner(this._stream, this.getProgressText(opts.progressText || 'Processing'));
     this._errors = [];
     this._summary = '';
+    this._data = new Map();
     this.start();
+  }
+
+  public get(key: string): any {
+    return this._data.get(key);
+  }
+
+  public set(key: string, value: any): this {
+    this._data.set(key, value);
+    return this;
   }
 
   public addError(err: any): this {
