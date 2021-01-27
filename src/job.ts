@@ -119,7 +119,7 @@ export class Job {
   }
 
   public getReportText(): string {
-    let result = '\n';
+    let result = '';
 
     result += table([
       [style.label('Elapsed:'), style.subtle(this.getElapsedText())],
