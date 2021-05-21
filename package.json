@@ -1,15 +1,15 @@
 {
   "name": "@elements/job",
   "description": "The job class used by elements commands.",
-  "version": "1.0.0-alpha.110",
+  "version": "1.0.0-alpha.111",
   "license": "MIT",
   "browser": {
     "./find": false
   },
   "engines": {},
   "dependencies": {
-    "@elements/term": "1.0.0-alpha.110",
-    "@elements/utils": "1.0.0-alpha.110"
+    "@elements/term": "1.0.0-alpha.111",
+    "@elements/utils": "1.0.0-alpha.111"
   },
   "devDependencies": {
     "@types/node": ">=14.14.22 <14.15.0",
